@@ -1,0 +1,384 @@
+/* =========================
+   SKETCH MENU THEME
+   Inspired by hand-drawn linen menus
+   ========================= */
+
+   @import url('https://fonts.googleapis.com/css2?family=Caveat:wght@400;600;700&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Jost:wght@300;400;500&display=swap');
+
+   :root {
+     --linen:       #f5ede0;
+     --linen-alt:   #ecddd0;
+     --card-bg:     #faf3ec;
+     --ink:         #2b1a0e;
+     --ink-mid:     #5c3520;
+     --ink-light:   #8a6048;
+     --ink-faded:   #c0a088;
+     --red:         #c0522b;
+     --blue:        #6b8f6a;
+     --amber:       #c98a2a;
+     --border:      rgba(43, 26, 14, 0.13);
+     --border-mid:  rgba(43, 26, 14, 0.22);
+     --radius:      4px;
+   }
+   
+   * { box-sizing: border-box; }
+   html, body { height: 100%; }
+   
+   body {
+     margin: 0;
+     font-family: 'Jost', system-ui, sans-serif;
+     font-weight: 300;
+     background-color: var(--linen);
+     background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='400'%3E%3Cfilter id='g'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='400' height='400' filter='url(%23g)' opacity='0.055'/%3E%3C/svg%3E");
+     color: var(--ink);
+     min-height: 100vh;
+   }
+   
+   /* =========================
+      PAGE HEADER
+      ========================= */
+   
+   .page-header {
+     padding: 3.5rem 2rem 0.5rem;
+     max-width: 860px;
+     margin: 0 auto;
+     text-align: center;
+     position: relative;
+   }
+   
+   .page-header::before {
+     content: none;
+   }
+   
+   .page-header h1 {
+     font-family: 'Caveat', cursive;
+     font-size: clamp(3rem, 7vw, 5.5rem);
+     font-weight: 700;
+     letter-spacing: 0.01em;
+     margin: 0;
+     line-height: 1.05;
+     color: var(--ink);
+     transform: rotate(-0.6deg);
+     display: inline-block;
+     text-shadow: none;
+   }
+   
+   .page-header h1 .highlight {
+     color: var(--red);
+     font-style: normal;
+   }
+   
+   .page-header::after {
+     content: '';
+     display: block;
+     width: 60px;
+     height: 1.5px;
+     background: var(--ink-mid);
+     margin: 1rem auto 0;
+     opacity: 0.3;
+   }
+   
+   .subtitle {
+     margin-top: 1rem;
+     font-family: 'Libre Baskerville', Georgia, serif;
+     font-size: 0.95rem;
+     font-style: italic;
+     color: var(--ink-light);
+     max-width: 580px;
+     line-height: 1.85;
+     margin-left: auto;
+     margin-right: auto;
+   }
+   
+   /* =========================
+      MAIN LAYOUT
+      ========================= */
+   
+   .page-main {
+     max-width: 1080px;
+     margin: 0 auto 4rem;
+     padding: 1.5rem 1.5rem 2rem;
+     display: flex;
+     flex-direction: column;
+     gap: 2rem;
+   }
+   
+   /* =========================
+      CARDS
+      ========================= */
+   
+   .card {
+     background: var(--card-bg);
+     border-radius: var(--radius);
+     border: 1px solid var(--border-mid);
+     padding: 2rem 2.2rem 2.4rem;
+     box-shadow:
+       1px 2px 0 rgba(28,18,8,0.04),
+       0 6px 24px rgba(28,18,8,0.07);
+     position: relative;
+     overflow: visible;
+   }
+   
+   .card::before {
+     content: '';
+     position: absolute;
+     top: 10px; left: 18px; right: 18px;
+     height: 1px;
+     background: var(--border);
+     border: none;
+     width: auto;
+     border-radius: 0;
+     border-color: transparent;
+     border-style: none;
+     opacity: 1;
+   }
+   
+   .card::after {
+     content: '';
+     position: absolute;
+     bottom: 10px; left: 18px; right: 18px;
+     height: 1px;
+     background: var(--border);
+     border: none;
+     width: auto;
+     border-radius: 0;
+     border-color: transparent;
+     border-style: none;
+     opacity: 1;
+   }
+   
+   .card h2 {
+     font-family: 'Jost', sans-serif;
+     font-size: 0.72rem;
+     font-weight: 500;
+     letter-spacing: 0.22em;
+     text-transform: uppercase;
+     margin: 0 0 0.25rem;
+     color: var(--ink-mid);
+     display: block;
+     gap: 0;
+   }
+   
+   .card h2::after { display: none; }
+   
+   .section-desc {
+     font-family: 'Libre Baskerville', Georgia, serif;
+     font-size: 0.92rem;
+     font-style: italic;
+     color: var(--ink-light);
+     margin: 0 0 1.25rem;
+     max-width: 780px;
+     line-height: 1.85;
+   }
+   
+   .section-number { display: none; }
+   
+   .status-text {
+     font-family: 'Jost', sans-serif;
+     font-size: 0.78rem;
+     font-weight: 300;
+     color: var(--ink-faded);
+     margin: 0.1rem 0 0.8rem;
+     letter-spacing: 0.04em;
+   }
+   
+   .status-text strong {
+     color: var(--ink-mid);
+     font-weight: 500;
+   }
+   
+   /* =========================
+      DIVIDER
+      ========================= */
+   
+   .divider {
+     display: block;
+     height: 1px;
+     background: var(--border);
+     margin: 0.4rem 0 1.4rem;
+     border: none;
+     opacity: 0.7;
+   }
+   
+   .divider::before,
+   .divider::after { display: none; }
+   .divider span { display: none; }
+   
+   /* =========================
+      GRID
+      ========================= */
+   
+   .grid-two {
+     display: flex;
+     flex-wrap: wrap;
+     gap: 1.25rem;
+   }
+   
+   .grid-two > * {
+     flex: 1 1 320px;
+     min-width: 0;
+   }
+   
+   .side-panel {
+     display: flex;
+     flex-direction: column;
+     gap: 0.9rem;
+   }
+   
+   /* =========================
+      CHART CONTAINERS
+      ========================= */
+   
+   .chart-container {
+     position: relative;
+     width: 100%;
+     height: 380px;
+     border-radius: var(--radius);
+     border: 1px solid var(--border);
+     background: rgba(255,252,246,0.9);
+     padding: 0.75rem;
+     overflow: hidden;
+   }
+   
+   .chart-container.narrow { height: 380px; }
+   
+   canvas {
+     width: 100% !important;
+     height: 100% !important;
+   }
+   
+   /* =========================
+      IFRAME
+      ========================= */
+   
+   iframe {
+     border-radius: var(--radius);
+     border: 1px solid var(--border-mid);
+     overflow: hidden;
+   }
+   
+   /* =========================
+      STAT CHIPS
+      ========================= */
+   
+   .stat-chips {
+     display: flex;
+     flex-wrap: wrap;
+     gap: 0.5rem;
+     margin-top: 0.75rem;
+   }
+   
+   .stat-chip {
+     font-family: 'Jost', sans-serif;
+     font-size: 0.75rem;
+     font-weight: 400;
+     color: var(--ink-light);
+     padding: 0.2rem 0.65rem;
+     border-radius: 2px;
+     background: transparent;
+     border: 1px solid var(--border-mid);
+     letter-spacing: 0.06em;
+     white-space: nowrap;
+   }
+   
+   /* =========================
+      TABLE
+      ========================= */
+   
+   .table-wrapper {
+     margin-top: 0.75rem;
+     border-radius: var(--radius);
+     border: 1px solid var(--border);
+     overflow: hidden;
+     background: rgba(255,252,246,0.9);
+     max-height: 280px;
+     overflow-y: auto;
+   }
+   
+   #expensiveDishesTable {
+     width: 100%;
+     border-collapse: collapse;
+     font-family: 'Jost', sans-serif;
+     font-size: 0.82rem;
+     color: var(--ink);
+   }
+   
+   #expensiveDishesTable th,
+   #expensiveDishesTable td {
+     padding: 0.5rem 0.75rem;
+     text-align: left;
+   }
+   
+   #expensiveDishesTable th {
+     background: rgba(28,18,8,0.04);
+     color: var(--ink-mid);
+     font-weight: 500;
+     font-size: 0.68rem;
+     letter-spacing: 0.14em;
+     text-transform: uppercase;
+     border-bottom: 1px solid var(--border);
+   }
+   
+   #expensiveDishesTable tbody tr:nth-child(odd) { background: transparent; }
+   #expensiveDishesTable tbody tr:nth-child(even) { background: rgba(28,18,8,0.025); }
+   
+   .price-cell {
+     text-align: right;
+     font-variant-numeric: tabular-nums;
+     color: var(--amber);
+   }
+   
+   .table-wrapper::-webkit-scrollbar { width: 5px; }
+   .table-wrapper::-webkit-scrollbar-track { background: transparent; }
+   .table-wrapper::-webkit-scrollbar-thumb {
+     background: rgba(28,18,8,0.15);
+     border-radius: 999px;
+   }
+   
+   /* =========================
+      2x2 GRID
+      ========================= */
+   
+   .grid-2x2 {
+     display: grid;
+     grid-template-columns: repeat(2, minmax(0, 1fr));
+     gap: 1.25rem;
+     align-items: stretch;
+   }
+   
+   .grid-2x2 .chart-container { height: 380px; }
+   
+   /* =========================
+      FOOTER
+      ========================= */
+   
+   .page-footer {
+     text-align: center;
+     padding: 1rem 1rem 3rem;
+     color: var(--ink-faded);
+     font-family: 'Jost', sans-serif;
+     font-weight: 300;
+     font-size: 0.78rem;
+     letter-spacing: 0.08em;
+   }
+   
+   .page-footer::before {
+     content: '— · —';
+     display: block;
+     margin-bottom: 0.5rem;
+     opacity: 0.4;
+   }
+   
+   /* =========================
+      RESPONSIVE
+      ========================= */
+   
+   @media (max-width: 768px) {
+     .page-header { padding: 2.5rem 1.2rem 0.5rem; }
+     .page-main { padding: 0.75rem 1rem 1rem; gap: 1.5rem; }
+     .card { padding: 1.5rem 1.2rem 1.6rem; }
+     .chart-container,
+     .chart-container.narrow { height: 300px; padding: 0.5rem; }
+     .grid-2x2 { grid-template-columns: 1fr; }
+     .grid-2x2 .chart-container { height: 300px; }
+   }
